@@ -1,31 +1,33 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        g=defaultdict(list)
-        for a,b in prerequisites:
-            g[a].append(b)
+        preMap={i:[] for i in range(numCourses)}
+        for crs,pre in prerequisites:
+            preMap[crs].append(pre)
 
-        unvisited=0
-        visiting=1
-        visited=2
-        states=[unvisited]*numCourses
-        
-        def dfs(node):
-            state=states[node]
-            if state== visited: return True
-            elif state==visiting: return False
+        visitSet=set()
 
-            states[node]=visiting
-
-            for n in g[node]:
-                if not dfs(n):
-                    return False
-            states[node]=visited
-            return True
-        
-        for i in range(numCourses):
-            if not dfs(i):
+        def dfs(crs):
+            if crs in visitSet:
                 return False
+
+            if preMap[crs]==[]:
+                return True
+
+            visitSet.add(crs)
+
+            for pre in preMap[crs]:
+                if not dfs(pre): return False
+            visitSet.remove(crs)
+            preMap[crs]=[]
+            return True
+
+        for crs in range(numCourses):
+            if not dfs(crs): return False
         return True
+
+        
+
+     
 
 
         
