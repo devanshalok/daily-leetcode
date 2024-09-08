@@ -1,35 +1,35 @@
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        order=[]
-        g=defaultdict(list)
-        for a,b in prerequisites:
-            g[a].append(b)
+        preMap={ i:[] for i in range(numCourses)}
+        for crs, pre in prerequisites:
+            preMap[crs].append(pre)
 
-        unvisited,visiting,visited=0,1,2
-        states=[unvisited]*numCourses
+        visited=set()
+        cycle=set()
+        answer=[]
 
-        def dfs(i):
-            if states[i]==visiting: return False
-            if states[i]==visited: return True
+        def dfs(crs):
+            if crs in cycle:
+                return False
 
-            states[i]=visiting
-
-            for n in g[i]:
-                if not dfs(n):
-                    return False
-
-            states[i]=visited
-            order.append(i)
-            return True
-
-
-        
-        for i in range(numCourses):
-            if not dfs(i):
-                return []
-
-        return order
+            if crs in visited:
+                return True
             
+            cycle.add(crs)
+
+            for pre in preMap[crs]:
+                if not dfs(pre): return False
+            cycle.remove(crs)
+            visited.add(crs)
+            answer.append(crs)
+            return True
         
-        
-        
+        for crs in range(numCourses):
+            if not dfs(crs): return []
+
+        return answer
+
+
+    
+
+
