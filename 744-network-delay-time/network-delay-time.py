@@ -1,6 +1,6 @@
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        edges=defaultdict(list)
+        edges={}
         for u,v,w in times:
             if u not in edges:
                 edges[u]=[]
