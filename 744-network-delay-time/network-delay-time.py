@@ -3,8 +3,10 @@ class Solution:
         edges=defaultdict(list)
         for u,v,w in times:
             edges[u].append((v,w))
+            
 
         minHeap=[(0,k)]
+        heapq.heapify(minHeap)
         visit=set()
         result=0
 
@@ -20,9 +22,4 @@ class Solution:
                 if n2 not in visit:
                     heapq.heappush(minHeap,(w1+w2,n2))
         
-        return result if len(visit)==n else -1
-
-
-
-
-        
+        return result if len(visit)==n else -1        
