@@ -15,6 +15,7 @@ class Solution:
         res=0
         visit=set()
         minH=[[0,0]]
+        heapq.heapify(minH)
 
         while len(visit)<n:
             cost,point=heapq.heappop(minH)
