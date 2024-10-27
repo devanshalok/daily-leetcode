@@ -14,14 +14,16 @@ class Solution:
             # so we check from the root and move downwards
 
             # we keep pn moving downwards from the root 
-            # depending on the value of the nodes given 
+            # depending on the value of the nodes given
+            # if both greater->left else->right
+        
 
             if p.val>root.val and q.val>root.val:
                 root=root.right
 
             elif p.val<root.val and q.val<root.val:
                 root=root.left
-
+            # else just return to root
             else:
                 return root
         
