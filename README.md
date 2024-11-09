@@ -56,7 +56,7 @@ Contributions are welcome! Please read `CONTRIBUTING.md` for details on our code
 
 ## Authors
 
-- **Devansh Alok** - Initial work - [Devansh Alok](https://github.com/devanshalok)
+- **Devansh Alok** - [Devansh Alok](https://github.com/devanshalok)
 
 See the list of contributors who have participated in this project.
 
