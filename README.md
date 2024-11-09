@@ -16,7 +16,7 @@ To run these code files, you'll need:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/daily-leetcode-challenges.git
+git clone https://github.com/devanshalok/daily-leetcode.git
 
 # Navigate into the directory
 cd daily-leetcode-challenges
@@ -53,10 +53,6 @@ This project is meant for personal learning and development. Deployment to a liv
 ## Contributing
 
 Contributions are welcome! Please read `CONTRIBUTING.md` for details on our code of conduct and the process for submitting pull requests.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For available versions, see the tags on this repository.
 
 ## Authors
 
