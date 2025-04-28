@@ -11,7 +11,6 @@ class Solution(object):
                     continue
                 if (board[i][j] in row[i] or board [i][j] in cols[j] or board[i][j] in sqaure[(i//3,j//3)]):
                     return False
-                    
 
                 else:
                     row[i].add(board[i][j])
