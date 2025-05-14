@@ -13,7 +13,7 @@ class Solution(object):
         curr=head
         newdict={None:None}
 
-        # to copy the node
+        # To copy the node and teh next of the node 
         while curr:
             node=Node(x=curr.val)
             newdict[curr]=node
