@@ -8,7 +8,7 @@ class Solution:
     def closestKValues(self, root: TreeNode, target: float, k: int) -> List[int]:
         def dfs(node, queue):
             if not node:
-                return
+                return 
             
             dfs(node.left, queue)
             queue.append(node.val)
