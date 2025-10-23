@@ -1,6 +1,5 @@
 import heapq
 
-
 class MaxStack:
 
     def __init__(self):
