@@ -1,20 +1,25 @@
 # The knows API is already defined for you.
-# return a bool, whether a knows b
 # def knows(a: int, b: int) -> bool:
 
 class Solution:
     def findCelebrity(self, n: int) -> int:
-        self.n =n
+        # Step 1: Find candidate
+        candidate = 0
+        for i in range(1, n):
+            if knows(candidate, i):
+                # Candidate knows i -> candidate cannot be celebrity
+                candidate = i
+            # else: candidate does not know i -> i cannot be celebrity
+
+        # Step 2: Verify candidate
         for i in range(n):
-            if self.is_celebrity(i):
-                return i
-        return -1
+            if i == candidate:
+                continue
+            # Celebrity does not know anyone
+            if knows(candidate, i):
+                return -1
+            # Everyone must know celebrity
+            if not knows(i, candidate):
+                return -1
 
-    def is_celebrity(self,i):
-        for j in range (self.n):
-            if i==j: continue
-            if knows(i,j) or not knows(j,i):
-                return False
-        return True
-
-        
+        return candidate
