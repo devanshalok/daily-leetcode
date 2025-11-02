@@ -6,17 +6,21 @@
 #         self.right = right
 class Solution:
     def findLeaves(self, root: TreeNode) -> List[List[int]]:
-        output = collections.defaultdict(list)
-    
-        def dfs(node, layer):
-            if not node: 
-                return layer 
-            left = dfs(node.left, layer)
-            right = dfs(node.right, layer)
-            layer = max(left, right)
-            output[layer].append(node.val)
-            return layer + 1
-    
-        dfs(root, 0)
-        return list(output.values())
+        res = []
+
+        def dfs(node):
+            if not node:
+                return -1  # base height for null nodes
+            left_height = dfs(node.left)
+            right_height = dfs(node.right)
+            curr_height = max(left_height, right_height) + 1
+
+            # Ensure the res list has enough sublists
+            if curr_height >= len(res):
+                res.append([])
+            res[curr_height].append(node.val)
+            return curr_height
+
+        dfs(root)
+        return res
         
